@@ -56,6 +56,7 @@ func (i *ServiceInstance) String() string {
 
 // Equal returns whether i and o are equivalent.
 func (i *ServiceInstance) Equal(o interface{}) bool {
+
 	if i == nil && o == nil {
 		return true
 	}
@@ -65,6 +66,7 @@ func (i *ServiceInstance) Equal(o interface{}) bool {
 	}
 
 	t, ok := o.(*ServiceInstance)
+
 	if !ok {
 		return false
 	}
@@ -75,6 +77,7 @@ func (i *ServiceInstance) Equal(o interface{}) bool {
 
 	sort.Strings(i.Endpoints)
 	sort.Strings(t.Endpoints)
+
 	for j := 0; j < len(i.Endpoints); j++ {
 		if i.Endpoints[j] != t.Endpoints[j] {
 			return false
@@ -92,4 +95,5 @@ func (i *ServiceInstance) Equal(o interface{}) bool {
 	}
 
 	return i.ID == t.ID && i.Name == t.Name && i.Version == t.Version
+
 }
